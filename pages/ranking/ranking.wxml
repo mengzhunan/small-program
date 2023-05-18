@@ -1,0 +1,21 @@
+<view class="nav">
+  <view class="{{ active == index ? 'title active' : 'title' }}" bindtap="onChange" data-type="{{index}}" wx:for="{{navTitle}}" wx:for-item="title" wx:key="index">{{title}}</view>
+</view>
+<view class="content">
+  <view class="comic" wx:for="{{cartoonList}}" wx:key="comicId" data-id="{{item.comicId}}" data-title="{{item.title}}" bindtap="navTodetail">
+    <view class="cover">
+      <van-image lazy-load width="196rpx" height="260rpx" src="{{item.cover}}" />
+    </view>
+    <view class="right">
+      <view class="title">{{ item.title }}</view>
+      <view class="author">
+        作者：<text class="txt" wx:for="{{item.author}}" wx:for-item="author" wx:key="index">{{ author }}</text>
+      </view>
+      <view class="tag">
+        <view wx:for="{{item.tag}}" wx:for-item="tag" wx:key="index"> {{ tag }}</view>
+      </view>
+      <view class="total">更新至{{ item.total }}话</view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,74 @@
+<view wx:if="{{particularsContent}}">
+
+  <view class="header">
+    <van-image width="750rpx" height="422rpx" src="{{particularsContent.horizontal_cover}}@760w_380h" />
+    <view class="headline">
+      <view class="title">{{particularsContent.title}}</view>
+      <view class="monicker">
+        <view class="author" wx:for="{{particularsContent.author_name}}" wx:for-item="author" wx:key="index"><text wx:if="{{!index==0}}">、</text>{{author}}</view>
+        <text wx:for="{{particularsContent.styles}}" wx:for-item="styles" wx:key="index">·{{styles}}</text>
+      </view>
+    </view>
+  </view>
+
+  <wxs src="../../utils/filtration.wxs" module="m" />
+  <view class="section">
+
+    <view class="record">
+      <view class="star chase" data-id="{{particularsContent.id}}" bindtap="storageAdd" wx:if="{{!m.findId(storageList,particularsContent.id)}}">追漫</view>
+      <view class="star chased" data-id="{{particularsContent.id}}" bindtap="storageRemove" wx:else>已追</view>
+
+      <view wx:if="{{last_ep.short_title}}" class="chapter" data-chapterid="{{particularsContent.id}}" data-eqid="{{last_ep_id}}" bindtap="navToReading">看第[{{last_ep.short_title}}]话</view>
+      <view wx:else class="chapter" data-chapterid="{{particularsContent.id}}" data-eqid="{{m.control(particularsContent.ep_list, sortState,slice)[0].id}}" bindtap="navToReading">
+        看第[{{m.control(particularsContent.ep_list, sortState,slice)[0].short_title}}]话
+      </view>
+    </view>
+    <view class="state">
+      <view class="update">{{particularsContent.is_finish? "已完结":"连载中"}}</view>
+      <view class="{{downState ? 'p synopsis' : 'p' }}">
+        {{particularsContent.evaluate}}
+        <text wx:if="{{downState}}" class="down" bindtap="down">▼</text>
+      </view>
+      <view class="alls">
+        <view class="all">
+          <view class="total">全部章节({{particularsContent.ep_list.length}})</view>
+          <view class="order" bindtap="sort" wx:if="{{sortState}}">
+            升序<text class="ascending"></text>
+          </view>
+          <view class="order" bindtap="sort" wx:else>
+            降序<text class="descending"></text>
+          </view>
+        </view>
+        <view class="entire">
+          <view class="{{ last_ep.id == item.id ? 'only active' : 'only' }}" wx:for="{{m.control(particularsContent.ep_list, sortState,slice)}}" wx:key="index" data-chapterid="{{particularsContent.id}}" data-eqid="{{item.id}}" bindtap="navToReading">{{item.short_title}}</view>
+          <view class="only" bindtap="unfold" wx:if="{{slice}}">. . .</view>
+        </view>
+      </view>
+
+      <view class="discussions">
+        <view class="discussion">讨论区(3781)</view>
+        <view class="swiper">
+          <view class="content" wx:for="{{comment}}" wx:key="index">
+            <view class="c-top">
+              <van-image lazy-load round width="60rpx" height="60rpx" src="{{item.member.avatar}}" />
+              <view class="name">{{ item.member.uname }}</view>
+            </view>
+            <view class="message">{{item.content.message}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="like discussion">猜你喜欢</view>
+      <view class="like-contetn">
+        <view class="cartoon" wx:for="{{ likeContent }}" wx:key="season_id" data-id="{{item.season_id}}" data-title="{{item.title}}" bindtap="navToDetails">
+          <van-image lazy-load width="196rpx" height="260rpx" src="{{item.vertical_cover}}" />
+          <view class="like-title">{{ item.title }}</view>
+          <view class="update">更新至{{ item.total }}话</view>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+
+</view>

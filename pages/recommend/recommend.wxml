@@ -1,0 +1,25 @@
+<view class="banner">
+  <swiper class="banners" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{ true }}" indicator-color="rgba(255, 255, 255, .6)" indicator-active-color="#FB7299">
+    <swiper-item wx:for="{{banner}}" wx:key="id">
+      <van-image width="710rpx" height="345rpx" radius="20rpx" src="{{item.img}}@760w_380h" />
+    </swiper-item>
+  </swiper>
+</view>
+<wxs src="../../utils/filtration.wxs" module="num"></wxs>
+<template name="cartoon">
+  <view class="cartoon-card" data-id="{{comic_id}}" data-title="{{title}}" bindtap="navToParticulars">
+    <van-image width="710rpx" height="345rpx" radius="16rpx" src="{{img}}@760w_380h" />
+    <view class="title">
+      {{title}}
+      <text>{{styles[0].name}}</text>
+    </view>
+    <view class="datum">
+      <text>{{sub_title}}</text>
+      <text>{{num.filtration(comment_total)}}</text>
+    </view>
+  </view>
+</template>
+
+<view class="module" wx:if="{{cartoonList.length}}">
+  <template wx:for="{{cartoonList}}" wx:key="index" is="cartoon" data="{{...item}}" />
+</view>

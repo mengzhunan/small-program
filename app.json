@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/recommend/recommend",
+    "pages/ranking/ranking",
+    "pages/particulars/particulars",
+    "pages/reading/reading",
+    "pages/classify/classify"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "探漫漫画",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "position": "top",
+    "color": "#90959B",
+    "selectedColor": "#FB7299",
+    "list": [{
+        "pagePath": "pages/recommend/recommend",
+        "text": "推荐"
+      },
+      {
+        "pagePath": "pages/ranking/ranking",
+        "text": "排行"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
+  }
+}

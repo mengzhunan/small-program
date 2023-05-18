@@ -1,0 +1,44 @@
+/* pages/recommend/recommend.wxss */
+.banners {
+  margin: 10rpx 20rpx 0;
+  border-radius: 20rpx;
+  height: 345rpx;
+}
+
+.module {
+  margin: 20rpx 20rpx 0;
+}
+
+.cartoon-card {
+  margin: 30rpx 0;
+}
+
+.cartoon-card .title {
+  font-size: 36rpx;
+  color: #000;
+  margin: 10rpx 0;
+}
+
+.cartoon-card .title text {
+  font-size: 24rpx;
+  padding: 4rpx 8rpx;
+  color: #666;
+  background-color: #ebebeb;
+  border-radius: 6rpx;
+  margin-left: 8rpx;
+}
+
+.cartoon-card .datum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #999;
+}
+
+.cartoon-card .datum text:last-child {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iI0QyRDZEOSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMiAyaDEyYTEgMSAwIDAxMSAxdjlhMSAxIDAgMDEtMSAxSDkuNWwtMi43MSAxLjkzNWEuNS41IDAgMDEtLjc5LS40MDdWMTNIMmExIDEgMCAwMS0xLTFWM2ExIDEgMCAwMTEtMXptMy41IDQuNmg1YS42LjYgMCAwMDAtMS4yaC01YS42LjYgMCAxMDAgMS4yem0wIDNoM2EuNi42IDAgMTAwLTEuMmgtM2EuNi42IDAgMTAwIDEuMnoiLz48L3N2Zz4=");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 34rpx;
+  padding-left: 46rpx;
+}

@@ -1,0 +1,6 @@
+<!--pages/reading/reading.wxml-->
+<view>
+  <view class="img" wx:for="{{images}}" wx:for-item="chunk" wx:for-index="chunkIndex" wx:key="chunkIndex">
+    <van-image style="font-size: 0; vertical-align: middle;" wx:for="{{chunk}}" wx:key="index" width="750rpx" height="{{(fragmentImg[chunkIndex][index].y/fragmentImg[chunkIndex][index].x) * 750 + 'rpx'}}" fit="widthFix" src="{{item.url+'?token='+item.token}}" />
+  </view>
+</view>

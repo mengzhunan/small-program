@@ -1,0 +1,27 @@
+<!--pages/classify/classify.wxml-->
+<view class="classify">
+  <view class="select">
+    <text data-key="style_id" data-value="-1" bindtap="changeSelectedLabel" class="{{selectedLabel.style_id == -1 ? 'active' : ''}}">全部</text>
+    <text wx:for="{{allLabel.styles}}" wx:key="index" data-key="style_id" data-value="{{item.id}}" bindtap="changeSelectedLabel" class="{{selectedLabel.style_id == item.id ? 'active' : ''}}">{{item.name}}</text>
+  </view>
+  <view class="van-hairline--top"></view>
+
+  <view class="select">
+    <text data-key="style_id" data-value="-1" bindtap="changeSelectedLabel" class="{{selectedLabel.area_id == -1 ? 'active' : ''}}">全部</text>
+    <text wx:for="{{allLabel.areas}}" wx:key="index" data-key="area_id" data-value="{{item.id}}" bindtap="changeSelectedLabel" class="{{selectedLabel.area_id == item.id ? 'active' : ''}}">{{item.name}}</text>
+  </view>
+  <view class="select">
+    <text data-key="style_id" data-value="-1" bindtap="changeSelectedLabel" class="{{selectedLabel.is_finish == -1 ? 'active' : ''}}">全部</text>
+    <text wx:for="{{allLabel.status}}" wx:key="index" data-key="is_finish" data-value="{{item.id}}" bindtap="changeSelectedLabel" class="{{selectedLabel.is_finish == item.id ? 'active' : ''}}">{{item.name}}</text>
+  </view>
+
+  <view class="comic-list">
+    <view class="comic" wx:for="{{selectedComics}}" wx:key="index" data-id="{{item.season_id}}" data-title="{{item.title}}" bindtap="navToDetail">
+      <van-image lazy-load width="210rpx" height="280rpx" src="{{item.vertical_cover}}@200w.jpg" />
+      <view class="title">{{item.title}}</view>
+      <view wx:if="{{item.is_finish}}" class="status">[完结]共{{item.total}}话</view>
+      <view wx:else class="status">更新至{{item.last_ord}}话</view>
+    </view>
+  </view>
+
+</view>

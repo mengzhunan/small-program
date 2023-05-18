@@ -1,0 +1,22 @@
+var filtration = function (n) {
+  return (parseFloat(n) / 10000).toFixed(2) + 'w'
+}
+
+var findId = function (arr, item) {
+  return arr.indexOf(item) !== -1
+}
+
+var control = function (arrs, sortState, slice) {
+  // arrs.concat().reverse() 合并数组并颠倒
+  var arr = sortState ? arrs.concat().reverse() : arrs
+  if (slice) {
+    return arr.slice(0, 7)
+  }
+  return arr
+}
+
+module.exports = {
+  filtration: filtration,
+  findId: findId,
+  control: control
+}
